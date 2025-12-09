@@ -1,0 +1,20 @@
+{
+  "name": "from-the-other-side",
+  "version": "1.0.0",
+  "description": "A platform for sharing ghostly encounters",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liene31/from-the-other-side.git"
+  },
+  "author": "Liene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liene31/from-the-other-side/issues"
+  },
+  "homepage": "https://github.com/Liene31/from-the-other-side#readme"
+}
