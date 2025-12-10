@@ -13,14 +13,20 @@ export async function serveStatic(req, res, directory) {
   const fileExtensions = path.extname(filePath);
   const contentType = getContentType(fileExtensions);
 
-  // console.log(req.url);
-  console.log(fileExtensions);
-
   try {
     const content = await fs.readFile(filePath);
-
     sendResponse(res, 200, contentType, content);
   } catch (err) {
-    console.log(err);
+    if (err.code === "ENOENT") {
+      const content = await fs.readFile(path.join(publicDir, "404.html"));
+      sendResponse(res, 404, "text/html", content);
+    } else {
+      sendResponse(
+        res,
+        500,
+        "text/html",
+        `<html><h1>Server Error: ${err.code}</h1></html>`
+      );
+    }
   }
 }
