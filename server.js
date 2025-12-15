@@ -11,8 +11,9 @@ const server = http.createServer(async (req, res) => {
   if (req.url.startsWith("/api") && req.method === "GET") {
     console.log("api");
     handleGet(res);
-  } else if (!req.url.startsWith("/api"))
+  } else if (!req.url.startsWith("/api")) {
     return await serveStatic(req, res, __dirname);
+  }
 });
 
 server.listen(PORT, () => {
