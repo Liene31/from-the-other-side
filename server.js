@@ -1,6 +1,6 @@
 import http from "node:http";
 import { serveStatic } from "./utils/serveStatic.js";
-import { handleGet } from "./handlers/routeHandlers.js";
+import { handleGet, handlePost } from "./handlers/routeHandlers.js";
 
 const PORT = 8000;
 
@@ -8,9 +8,12 @@ const __dirname = import.meta.dirname;
 // console.log("CWD", process.cwd()); --> prints cwd
 
 const server = http.createServer(async (req, res) => {
-  if (req.url.startsWith("/api") && req.method === "GET") {
-    console.log("api");
-    handleGet(res);
+  if (req.url === "/api") {
+    if (req.method === "GET") {
+      return await handleGet(res);
+    } else if (req.method === "POST") {
+      handlePost(req, res);
+    }
   } else if (!req.url.startsWith("/api")) {
     return await serveStatic(req, res, __dirname);
   }
