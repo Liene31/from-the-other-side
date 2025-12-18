@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Liene31/from-the-other-side/issues"
   },
-  "homepage": "https://github.com/Liene31/from-the-other-side#readme"
+  "homepage": "https://github.com/Liene31/from-the-other-side#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
 }

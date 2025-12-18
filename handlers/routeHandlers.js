@@ -5,6 +5,7 @@ import { addNewSighting } from "../utils/addNewSighting.js";
 
 export async function handleGet(res) {
   const data = await getData();
+  console.log(data);
   const content = JSON.stringify(data);
   sendResponse(res, 200, "application/json", content);
 }
