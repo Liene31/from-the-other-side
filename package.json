@@ -9,5 +9,8 @@
     "dev": "node --watch --watch-preserve-output server.js"
   },
   "author": "Liene",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sanitize-html": "^2.18.0"
+  }
 }
