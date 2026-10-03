@@ -1,4 +1,4 @@
-import sanitizeHtml from "sanitize-html";
+import { sanitizeInput } from "./sanitizeInput.js";
 
 export const parseJSONBody = async (req) => {
   let body = "";
@@ -9,13 +9,7 @@ export const parseJSONBody = async (req) => {
 
     const parsedData = JSON.parse(body);
 
-    let sanitizedData = {};
-
-    for (const key in parsedData) {
-      sanitizedData[key] = sanitizeHtml(parsedData[key], {
-        allowedTags: ["b"],
-      });
-    }
+    const sanitizedData = sanitizeInput(parsedData);
 
     return sanitizedData;
   } catch (err) {
